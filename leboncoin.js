@@ -48,7 +48,7 @@ request(url, function (error, response, html) {
 		if(err) {
 		  console.log(err);
 		} else {
-		  console.log('Successful generation');
+		  console.log('Successful generation !');
 		}
 	}); 
 	
