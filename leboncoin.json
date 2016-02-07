@@ -1,0 +1,29 @@
+{
+	"title" : "Leboncoin Schema",
+	"type" : "object",
+	"properties" : {
+	       "price": {
+				"type" : "integer",
+				"minimum" : 0
+			},
+			"category" : {
+				"type" : "string"
+			},
+		   "city" : {
+				"type" : "string"
+			},
+		   "postcode" : {
+				"type" : "integer"
+			},
+		   "goodType" : {
+				"type" : "string"
+		    },
+			"nbCoins" : {
+				"type" : "integer"
+			},
+		   "area" : {
+				"type" : "integer"
+			}
+	},
+	"required": ["price", "category", "city", "area"]
+}

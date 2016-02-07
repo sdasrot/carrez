@@ -1,0 +1,23 @@
+{
+	"title" : "MeilleursAgents Schema",
+	"type" : "object",
+	"properties" : {
+	       "pricePerM2": {
+				"type" : "integer",
+				"minimum" : 0
+			},
+			"category" : {
+				"type" : "string"
+			},
+		   "city" : {
+				"type" : "string"
+			},
+		   "postcode" : {
+				"type" : "integer"
+			},
+		   "goodType" : {
+				"type" : "string"
+		    }
+	},
+	"required": ["pricePerM2", "category", "city", "goodType"]
+}
