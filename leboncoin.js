@@ -6,7 +6,7 @@ var jsonSchema = require('./leboncoin.json');
 var fs = require('fs');
 
 
-var url = 'http://www.leboncoin.fr/locations/907130228.htm?ca=12_s'
+var url = 'http://www.leboncoin.fr/ventes_immobilieres/915700197.htm?ca=12_s'
 
 request(url, function (error, response, html) {
   if (!error) {
@@ -23,7 +23,7 @@ request(url, function (error, response, html) {
 	var webNbCoins = parseInt(tabElement[1].children[0].data.replace(" ",""));
 	
 	var webArea; 
-	webArea = parseInt(tabElement[3].children[0].data.replace(" ",""));
+	webArea = parseInt(tabElement[2].children[0].data.replace(" ",""));
     if(webArea == null)
     {
 		webArea = parseInt(tabElement[3].children[0].data.replace(" ",""));
@@ -34,14 +34,21 @@ request(url, function (error, response, html) {
 	var data_json = {};
 
 	data_json.price = webPrice;
-	data_json.city = webCity;
+	data_json.city = webCity;		
 	data_json.postalCode = webPostalCode;
-	data_json.category = webGoodType;
+	data_json.goodType = webGoodType;
+	
+	if (webPrice >= 30000) {
+		data_json.category = 'Vente';
+	} else 
+	{
+		data_json.category = 'Location';
+	}
+
 	data_json.nbCoins = webNbCoins;
 	data_json.area = webArea;
 
 	var json = JSON.stringify(data_json, null, 4);
-	
 	
 	// Writting :
 	fs.writeFile('jsonStorage.json',json ,function(err) {

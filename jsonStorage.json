@@ -1,1 +1,9 @@
-
+{
+    "price": 275000,
+    "city": "Levallois-Perret",
+    "category": "Vente",
+    "postalCode": 92300,
+    "goodType": "Appartement",
+    "nbCoins": 2,
+    "area": 32
+}
